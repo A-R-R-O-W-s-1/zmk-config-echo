@@ -1,0 +1,5 @@
+config SHIELD_ECHO_LEFT
+    def_bool $(shields_list_contains,echo_left)
+
+config SHIELD_ECHO_RIGHT
+    def_bool $(shields_list_contains,echo_right)
