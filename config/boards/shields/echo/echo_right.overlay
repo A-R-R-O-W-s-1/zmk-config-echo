@@ -1,4 +1,4 @@
-#include <dt-bindings/zmk/matrix_transform.h>
+#include "echo.dtsi"
 
 &kscan0 {
     col-gpios
