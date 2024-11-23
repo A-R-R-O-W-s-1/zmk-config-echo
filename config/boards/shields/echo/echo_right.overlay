@@ -1,8 +1,4 @@
-#include "echo.dtsi"
-
-&default_transform { 
-    col-offset = <6>;
-};
+#include <dt-bindings/zmk/matrix_transform.h>
 
 &kscan0 {
     col-gpios
