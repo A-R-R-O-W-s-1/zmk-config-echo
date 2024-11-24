@@ -18,7 +18,7 @@
 
     physical_layout {
         compatible = "zmk,physical-layout";
-        keys = 
+        keys = <
             // Left half
             // Outer Column
             { x = 0,    y = 0,    row = 0, col = 0 }  // ESC
