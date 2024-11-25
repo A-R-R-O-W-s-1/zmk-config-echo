@@ -1,9 +1,9 @@
 / {
     chosen {
-        zmk,kscan = &kscan0;
+        zmk,kscan = &kscan_left &kscan_right;
     };
 
-    kscan0: kscan {
+    kscan_left: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         wakeup-source;
         diode-direction = "col2row";
@@ -14,92 +14,76 @@
             , <&pro_micro 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             , <&pro_micro 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             ;
+        col-gpios
+            = <&pro_micro 21 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 9 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 19 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 18 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 15 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 14 GPIO_ACTIVE_HIGH>
+            ;
+    };
+
+    kscan_right: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        wakeup-source;
+        diode-direction = "col2row";
+        row-gpios
+            = <&pro_micro 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            ;
+        col-gpios
+            = <&pro_micro 14 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 15 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 18 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 19 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 20 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 21 GPIO_ACTIVE_HIGH>
+            ;
     };
 
     physical_layout {
         compatible = "zmk,physical-layout";
-        keys = 
-            // Left half
-            // Outer Column
-            { x = 0,    y = 0,    row = 0, col = 0 }  // ESC
-            { x = 0,    y = 190,  row = 1, col = 0 }  // TAB
-            { x = 0,    y = 380,  row = 2, col = 0 }  // LALT
-            { x = 0,    y = 570,  row = 3, col = 0 }  // LSHFT
-            
-            // Pinky Column
-            { x = 190,  y = 0,    row = 0, col = 1 }  // 1
-            { x = 190,  y = 190,  row = 1, col = 1 }  // Q
-            { x = 190,  y = 380,  row = 2, col = 1 }  // A
-            { x = 190,  y = 570,  row = 3, col = 1 }  // Z
-            
-            // Ring Column (8.5mm stagger)
-            { x = 380,  y = 85,   row = 0, col = 2 }  // 2
-            { x = 380,  y = 275,  row = 1, col = 2 }  // W
-            { x = 380,  y = 465,  row = 2, col = 2 }  // S
-            { x = 380,  y = 655,  row = 3, col = 2 }  // X
-            
-            // Middle Column (8mm stagger)
-            { x = 570,  y = 80,   row = 0, col = 3 }  // 3
-            { x = 570,  y = 270,  row = 1, col = 3 }  // E
-            { x = 570,  y = 460,  row = 2, col = 3 }  // D
-            { x = 570,  y = 650,  row = 3, col = 3 }  // C
-            
-            // Index Column (-6.5mm stagger)
-            { x = 760,  y = -65,  row = 0, col = 4 }  // 4
-            { x = 760,  y = 125,  row = 1, col = 4 }  // R
-            { x = 760,  y = 315,  row = 2, col = 4 }  // F
-            { x = 760,  y = 505,  row = 3, col = 4 }  // V
-            
-            // Inner Column (-2mm stagger)
-            { x = 950,  y = -20,  row = 0, col = 5 }  // 5
-            { x = 950,  y = 170,  row = 1, col = 5 }  // T
-            { x = 950,  y = 360,  row = 2, col = 5 }  // G
-            { x = 950,  y = 550,  row = 3, col = 5 }  // B
-            
-            // Left Thumb cluster
-            { x = 810,  y = 740,  row = 4, col = 4, r = -200 }  // SPACE
-            { x = 1000, y = 740,  row = 4, col = 5 }  // LCTRL
-            
-            // Right half (mirrored)
-            // Inner Column
-            { x = 1950, y = -20,  row = 0, col = 6 }  // 6
-            { x = 1950, y = 170,  row = 1, col = 6 }  // Y
-            { x = 1950, y = 360,  row = 2, col = 6 }  // H
-            { x = 1950, y = 550,  row = 3, col = 6 }  // N
-            
-            // Index Column (-6.5mm stagger mirrored)
-            { x = 2140, y = -65,  row = 0, col = 7 }  // 7
-            { x = 2140, y = 125,  row = 1, col = 7 }  // U
-            { x = 2140, y = 315,  row = 2, col = 7 }  // J
-            { x = 2140, y = 505,  row = 3, col = 7 }  // M
-            
-            // Middle Column (8mm stagger mirrored)
-            { x = 2330, y = 80,   row = 0, col = 8 }  // 8
-            { x = 2330, y = 270,  row = 1, col = 8 }  // I
-            { x = 2330, y = 460,  row = 2, col = 8 }  // K
-            { x = 2330, y = 650,  row = 3, col = 8 }  // COMMA
-            
-            // Ring Column (8.5mm stagger mirrored)
-            { x = 2520, y = 85,   row = 0, col = 9 }  // 9
-            { x = 2520, y = 275,  row = 1, col = 9 }  // O
-            { x = 2520, y = 465,  row = 2, col = 9 }  // L
-            { x = 2520, y = 655,  row = 3, col = 9 }  // DOT
-            
-            // Pinky Column
-            { x = 2710, y = 0,    row = 0, col = 10 }  // 0
-            { x = 2710, y = 190,  row = 1, col = 10 }  // P
-            { x = 2710, y = 380,  row = 2, col = 10 }  // SEMI
-            { x = 2710, y = 570,  row = 3, col = 10 }  // FSLH
-            
-            // Outer Column
-            { x = 2900, y = 0,    row = 0, col = 11 }  // BSPC
-            { x = 2900, y = 190,  row = 1, col = 11 }  // BSLH
-            { x = 2900, y = 380,  row = 2, col = 11 }  // RET
-            { x = 2900, y = 570,  row = 3, col = 11 }  // RSHFT
-            
-            // Right Thumb cluster
-            { x = 1900, y = 740,  row = 4, col = 6, r = 200 }  // MO1
-            { x = 2090, y = 740,  row = 4, col = 7 }  // SPACE
+        keys = <
+            /* Left half */
+            0 0, 1 0, 2 0, 3 0, /* Outer Column */
+            0 1, 1 1, 2 1, 3 1, /* Pinky Column */
+            0 2, 1 2, 2 2, 3 2, /* Ring Column */
+            0 3, 1 3, 2 3, 3 3, /* Middle Column */
+            0 4, 1 4, 2 4, 3 4, /* Index Column */
+            0 5, 1 5, 2 5, 3 5, /* Inner Column */
+            4 4, 4 5,           /* Left Thumb cluster */
+
+            /* Right half (mirrored) */
+            0 6, 1 6, 2 6, 3 6, /* Inner Column */
+            0 7, 1 7, 2 7, 3 7, /* Index Column */
+            0 8, 1 8, 2 8, 3 8, /* Middle Column */
+            0 9, 1 9, 2 9, 3 9, /* Ring Column */
+            0 10, 1 10, 2 10, 3 10, /* Pinky Column */
+            0 11, 1 11, 2 11, 3 11, /* Outer Column */
+            4 6, 4 7            /* Right Thumb cluster */
+        >;
+        position-map = <
+            /* Left half */
+            0 0, 0 19, 0 38, 0 57,
+            19 0, 19 19, 19 38, 19 57,
+            38 8.5, 38 27.5, 38 46.5, 38 65.5,
+            57 8, 57 27, 57 46, 57 65,
+            76 -6.5, 76 12.5, 76 31.5, 76 50.5,
+            95 -2, 95 17, 95 36, 95 55,
+            81 74, 100 74,
+
+            /* Right half */
+            195 -2, 195 17, 195 36, 195 55,
+            214 -6.5, 214 12.5, 214 31.5, 214 50.5,
+            233 8, 233 27, 233 46, 233 65,
+            252 8.5, 252 27.5, 252 46.5, 252 65.5,
+            271 0, 271 19, 271 38, 271 57,
+            290 0, 290 19, 290 38, 290 57,
+            190 74, 209 74
         >;
     };
 };
