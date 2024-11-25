@@ -73,29 +73,29 @@
             , <&key_physical_attrs 100 100  300  380     0     0     0>
 
             // Left half - Index column (-65 stagger)
-            , <&key_physical_attrs 100 100  400  -65     0     0     0>
+            , <&key_physical_attrs 100 100  400  (-65)   0     0     0>
             , <&key_physical_attrs 100 100  400   35     0     0     0>
             , <&key_physical_attrs 100 100  400  135     0     0     0>
             , <&key_physical_attrs 100 100  400  235     0     0     0>
 
             // Left half - Inner column (-20 stagger)
-            , <&key_physical_attrs 100 100  500  -20     0     0     0>
+            , <&key_physical_attrs 100 100  500  (-20)   0     0     0>
             , <&key_physical_attrs 100 100  500   80     0     0     0>
             , <&key_physical_attrs 100 100  500  180     0     0     0>
             , <&key_physical_attrs 100 100  500  280     0     0     0>
 
             // Left thumb cluster
-            , <&key_physical_attrs 100 100  505  379   -20   505   379>  // Rotated thumb key
+            , <&key_physical_attrs 100 100  505  379  (-20)    0     0>  // Rotated thumb key
             , <&key_physical_attrs 100 100  500  379     0     0     0>  // Regular thumb key
 
             // Right half - Inner column (-20 stagger)
-            , <&key_physical_attrs 100 100  700  -20     0     0     0>
+            , <&key_physical_attrs 100 100  700  (-20)   0     0     0>
             , <&key_physical_attrs 100 100  700   80     0     0     0>
             , <&key_physical_attrs 100 100  700  180     0     0     0>
             , <&key_physical_attrs 100 100  700  280     0     0     0>
 
             // Right half - Index column (-65 stagger)
-            , <&key_physical_attrs 100 100  800  -65     0     0     0>
+            , <&key_physical_attrs 100 100  800  (-65)   0     0     0>
             , <&key_physical_attrs 100 100  800   35     0     0     0>
             , <&key_physical_attrs 100 100  800  135     0     0     0>
             , <&key_physical_attrs 100 100  800  235     0     0     0>
@@ -125,7 +125,7 @@
             , <&key_physical_attrs 100 100 1200  300     0     0     0>
 
             // Right thumb cluster
-            , <&key_physical_attrs 100 100  695  379    20   695   379>  // Rotated thumb key
+            , <&key_physical_attrs 100 100  695  379    20     0     0>  // Rotated thumb key
             , <&key_physical_attrs 100 100  700  379     0     0     0>  // Regular thumb key
             ;
     };
