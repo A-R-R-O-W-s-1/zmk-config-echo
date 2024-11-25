@@ -18,88 +18,88 @@
 
     physical_layout {
         compatible = "zmk,physical-layout";
-        keys = <
+        keys = 
             // Left half
             // Outer Column
             { x = 0,    y = 0,    row = 0, col = 0 }  // ESC
-            { x = 0,    y = 19,   row = 1, col = 0 }  // TAB
-            { x = 0,    y = 38,   row = 2, col = 0 }  // LALT
-            { x = 0,    y = 57,   row = 3, col = 0 }  // LSHFT
+            { x = 0,    y = 190,  row = 1, col = 0 }  // TAB
+            { x = 0,    y = 380,  row = 2, col = 0 }  // LALT
+            { x = 0,    y = 570,  row = 3, col = 0 }  // LSHFT
             
             // Pinky Column
-            { x = 19,   y = 0,    row = 0, col = 1 }  // 1
-            { x = 19,   y = 19,   row = 1, col = 1 }  // Q
-            { x = 19,   y = 38,   row = 2, col = 1 }  // A
-            { x = 19,   y = 57,   row = 3, col = 1 }  // Z
+            { x = 190,  y = 0,    row = 0, col = 1 }  // 1
+            { x = 190,  y = 190,  row = 1, col = 1 }  // Q
+            { x = 190,  y = 380,  row = 2, col = 1 }  // A
+            { x = 190,  y = 570,  row = 3, col = 1 }  // Z
             
             // Ring Column (8.5mm stagger)
-            { x = 38,   y = 8.5,  row = 0, col = 2 }  // 2
-            { x = 38,   y = 27.5, row = 1, col = 2 }  // W
-            { x = 38,   y = 46.5, row = 2, col = 2 }  // S
-            { x = 38,   y = 65.5, row = 3, col = 2 }  // X
+            { x = 380,  y = 85,   row = 0, col = 2 }  // 2
+            { x = 380,  y = 275,  row = 1, col = 2 }  // W
+            { x = 380,  y = 465,  row = 2, col = 2 }  // S
+            { x = 380,  y = 655,  row = 3, col = 2 }  // X
             
             // Middle Column (8mm stagger)
-            { x = 57,   y = 8,    row = 0, col = 3 }  // 3
-            { x = 57,   y = 27,   row = 1, col = 3 }  // E
-            { x = 57,   y = 46,   row = 2, col = 3 }  // D
-            { x = 57,   y = 65,   row = 3, col = 3 }  // C
+            { x = 570,  y = 80,   row = 0, col = 3 }  // 3
+            { x = 570,  y = 270,  row = 1, col = 3 }  // E
+            { x = 570,  y = 460,  row = 2, col = 3 }  // D
+            { x = 570,  y = 650,  row = 3, col = 3 }  // C
             
             // Index Column (-6.5mm stagger)
-            { x = 76,   y = -6.5, row = 0, col = 4 }  // 4
-            { x = 76,   y = 12.5, row = 1, col = 4 }  // R
-            { x = 76,   y = 31.5, row = 2, col = 4 }  // F
-            { x = 76,   y = 50.5, row = 3, col = 4 }  // V
+            { x = 760,  y = -65,  row = 0, col = 4 }  // 4
+            { x = 760,  y = 125,  row = 1, col = 4 }  // R
+            { x = 760,  y = 315,  row = 2, col = 4 }  // F
+            { x = 760,  y = 505,  row = 3, col = 4 }  // V
             
             // Inner Column (-2mm stagger)
-            { x = 95,   y = -2,   row = 0, col = 5 }  // 5
-            { x = 95,   y = 17,   row = 1, col = 5 }  // T
-            { x = 95,   y = 36,   row = 2, col = 5 }  // G
-            { x = 95,   y = 55,   row = 3, col = 5 }  // B
+            { x = 950,  y = -20,  row = 0, col = 5 }  // 5
+            { x = 950,  y = 170,  row = 1, col = 5 }  // T
+            { x = 950,  y = 360,  row = 2, col = 5 }  // G
+            { x = 950,  y = 550,  row = 3, col = 5 }  // B
             
             // Left Thumb cluster
-            { x = 81,   y = 74,   row = 4, col = 4, r = -20 }  // SPACE
-            { x = 100,  y = 74,   row = 4, col = 5 }  // LCTRL
+            { x = 810,  y = 740,  row = 4, col = 4, r = -200 }  // SPACE
+            { x = 1000, y = 740,  row = 4, col = 5 }  // LCTRL
             
             // Right half (mirrored)
             // Inner Column
-            { x = 195,  y = -2,   row = 0, col = 6 }  // 6
-            { x = 195,  y = 17,   row = 1, col = 6 }  // Y
-            { x = 195,  y = 36,   row = 2, col = 6 }  // H
-            { x = 195,  y = 55,   row = 3, col = 6 }  // N
+            { x = 1950, y = -20,  row = 0, col = 6 }  // 6
+            { x = 1950, y = 170,  row = 1, col = 6 }  // Y
+            { x = 1950, y = 360,  row = 2, col = 6 }  // H
+            { x = 1950, y = 550,  row = 3, col = 6 }  // N
             
             // Index Column (-6.5mm stagger mirrored)
-            { x = 214,  y = -6.5, row = 0, col = 7 }  // 7
-            { x = 214,  y = 12.5, row = 1, col = 7 }  // U
-            { x = 214,  y = 31.5, row = 2, col = 7 }  // J
-            { x = 214,  y = 50.5, row = 3, col = 7 }  // M
+            { x = 2140, y = -65,  row = 0, col = 7 }  // 7
+            { x = 2140, y = 125,  row = 1, col = 7 }  // U
+            { x = 2140, y = 315,  row = 2, col = 7 }  // J
+            { x = 2140, y = 505,  row = 3, col = 7 }  // M
             
             // Middle Column (8mm stagger mirrored)
-            { x = 233,  y = 8,    row = 0, col = 8 }  // 8
-            { x = 233,  y = 27,   row = 1, col = 8 }  // I
-            { x = 233,  y = 46,   row = 2, col = 8 }  // K
-            { x = 233,  y = 65,   row = 3, col = 8 }  // COMMA
+            { x = 2330, y = 80,   row = 0, col = 8 }  // 8
+            { x = 2330, y = 270,  row = 1, col = 8 }  // I
+            { x = 2330, y = 460,  row = 2, col = 8 }  // K
+            { x = 2330, y = 650,  row = 3, col = 8 }  // COMMA
             
             // Ring Column (8.5mm stagger mirrored)
-            { x = 252,  y = 8.5,  row = 0, col = 9 }  // 9
-            { x = 252,  y = 27.5, row = 1, col = 9 }  // O
-            { x = 252,  y = 46.5, row = 2, col = 9 }  // L
-            { x = 252,  y = 65.5, row = 3, col = 9 }  // DOT
+            { x = 2520, y = 85,   row = 0, col = 9 }  // 9
+            { x = 2520, y = 275,  row = 1, col = 9 }  // O
+            { x = 2520, y = 465,  row = 2, col = 9 }  // L
+            { x = 2520, y = 655,  row = 3, col = 9 }  // DOT
             
             // Pinky Column
-            { x = 271,  y = 0,    row = 0, col = 10 }  // 0
-            { x = 271,  y = 19,   row = 1, col = 10 }  // P
-            { x = 271,  y = 38,   row = 2, col = 10 }  // SEMI
-            { x = 271,  y = 57,   row = 3, col = 10 }  // FSLH
+            { x = 2710, y = 0,    row = 0, col = 10 }  // 0
+            { x = 2710, y = 190,  row = 1, col = 10 }  // P
+            { x = 2710, y = 380,  row = 2, col = 10 }  // SEMI
+            { x = 2710, y = 570,  row = 3, col = 10 }  // FSLH
             
             // Outer Column
-            { x = 290,  y = 0,    row = 0, col = 11 }  // BSPC
-            { x = 290,  y = 19,   row = 1, col = 11 }  // BSLH
-            { x = 290,  y = 38,   row = 2, col = 11 }  // RET
-            { x = 290,  y = 57,   row = 3, col = 11 }  // RSHFT
+            { x = 2900, y = 0,    row = 0, col = 11 }  // BSPC
+            { x = 2900, y = 190,  row = 1, col = 11 }  // BSLH
+            { x = 2900, y = 380,  row = 2, col = 11 }  // RET
+            { x = 2900, y = 570,  row = 3, col = 11 }  // RSHFT
             
             // Right Thumb cluster
-            { x = 190,  y = 74,   row = 4, col = 6, r = 20 }  // MO1
-            { x = 209,  y = 74,   row = 4, col = 7 }  // SPACE
+            { x = 1900, y = 740,  row = 4, col = 6, r = 200 }  // MO1
+            { x = 2090, y = 740,  row = 4, col = 7 }  // SPACE
         >;
     };
 };
