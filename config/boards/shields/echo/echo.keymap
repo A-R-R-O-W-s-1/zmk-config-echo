@@ -30,7 +30,7 @@
 // |       |       |       | LPAR  | RPAR  |       |          |       | LBKT  | RBKT  |       |       |       |
 //                                 |       |       |          |       |       |
                        bindings = <
-   &trans    &trans         &trans         &trans         &trans         &trans                 &trans    &trans    &trans   &trans    &trans  &kp del
+   &trans    &trans         &trans         &trans         &trans         &trans                 &trans    &trans    &trans   &trans    &trans  &kp DEL
    &trans    &trans         &trans         &trans         &trans         &trans                 &trans    &trans    &trans   &trans    &trans  &trans
    &kp LWIN  &kp GRAVE      &kp LBKT       &kp RBKT       &kp SQT        &trans                 &trans    &kp MINUS &kp UP   &kp EQUAL &trans  &trans
    &trans    &trans         &trans         &trans         &trans         &trans                 &trans    &kp LEFT  &kp DOWN &kp RIGHT &trans  &trans
