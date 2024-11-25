@@ -43,10 +43,17 @@
             ;
     };
 
+    default_transform: matrix_transform {
+        compatible = "zmk,matrix-transform";
+        rows = <5>;
+        columns = <12>;
+    };
+
     default_layout: default_layout {
         compatible = "zmk,physical-layout";
         display-name = "Split Ergo Layout";
         kscan = <&kscan_left>, <&kscan_right>;
+        transform = <&default_transform>;
         keys  //                     w   h    x    y    rot    rx    ry
             // Left half - Outer column
             = <&key_physical_attrs 100 100    0    0     0     0     0>  // num
