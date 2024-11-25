@@ -1,6 +1,6 @@
 / {
     chosen {
-        zmk,kscan = &kscan_left &kscan_right;
+        zmk,kscan = &kscan_left, &kscan_right;
     };
 
     kscan_left: kscan {
