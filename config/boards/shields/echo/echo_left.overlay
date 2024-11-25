@@ -1,6 +1,6 @@
 #include "echo.dtsi"
 
-&kscan@0 {
+&kscan_left {
     col-gpios
         = <&pro_micro 21 GPIO_ACTIVE_HIGH>
         , <&pro_micro 9 GPIO_ACTIVE_HIGH>
