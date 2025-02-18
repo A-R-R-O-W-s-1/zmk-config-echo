@@ -10,6 +10,7 @@
     /* Define the physical layout for ZMK Studio */
     echo_layout: physical_layout {
         compatible = "zmk,physical-layout";
+        display-name = "Echo Layout";  /* Added display-name property */
         /*
          * The keys property should list the physical positions for each key.
          * Here we mirror the layout of your transform map.
@@ -27,15 +28,6 @@
             RC(4,6) RC(4,7)
         >;
     };
-
-    /* (Optional) You can remove or comment out the old keymap_transform if not used elsewhere.
-    default_transform: keymap_transform_0 {
-        compatible = "zmk,matrix-transform";
-        columns = <12>;
-        rows = <5>;
-        map = < ... >;
-    };
-    */
 
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
