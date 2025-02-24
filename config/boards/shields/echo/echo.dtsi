@@ -7,72 +7,281 @@
         zmk,physical-layout = &echo_layout;
     };
 
-    /* Define key nodes – one for each key in your layout */
-    key_0_0: key_0_0 { label = "K0_0"; };
-    key_0_1: key_0_1 { label = "K0_1"; };
-    key_0_2: key_0_2 { label = "K0_2"; };
-    key_0_3: key_0_3 { label = "K0_3"; };
-    key_0_4: key_0_4 { label = "K0_4"; };
-    key_0_5: key_0_5 { label = "K0_5"; };
-    key_0_6: key_0_6 { label = "K0_6"; };
-    key_0_7: key_0_7 { label = "K0_7"; };
-    key_0_8: key_0_8 { label = "K0_8"; };
-    key_0_9: key_0_9 { label = "K0_9"; };
-    key_0_10: key_0_10 { label = "K0_10"; };
-    key_0_11: key_0_11 { label = "K0_11"; };
+    /* Key node definitions for row 0 */
+    key_0_0: key_0_0 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K0_0";
+    };
+    key_0_1: key_0_1 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K0_1";
+    };
+    key_0_2: key_0_2 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K0_2";
+    };
+    key_0_3: key_0_3 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K0_3";
+    };
+    key_0_4: key_0_4 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K0_4";
+    };
+    key_0_5: key_0_5 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K0_5";
+    };
+    key_0_6: key_0_6 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K0_6";
+    };
+    key_0_7: key_0_7 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K0_7";
+    };
+    key_0_8: key_0_8 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K0_8";
+    };
+    key_0_9: key_0_9 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K0_9";
+    };
+    key_0_10: key_0_10 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K0_10";
+    };
+    key_0_11: key_0_11 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K0_11";
+    };
 
-    key_1_0: key_1_0 { label = "K1_0"; };
-    key_1_1: key_1_1 { label = "K1_1"; };
-    key_1_2: key_1_2 { label = "K1_2"; };
-    key_1_3: key_1_3 { label = "K1_3"; };
-    key_1_4: key_1_4 { label = "K1_4"; };
-    key_1_5: key_1_5 { label = "K1_5"; };
-    key_1_6: key_1_6 { label = "K1_6"; };
-    key_1_7: key_1_7 { label = "K1_7"; };
-    key_1_8: key_1_8 { label = "K1_8"; };
-    key_1_9: key_1_9 { label = "K1_9"; };
-    key_1_10: key_1_10 { label = "K1_10"; };
-    key_1_11: key_1_11 { label = "K1_11"; };
+    /* Key node definitions for row 1 */
+    key_1_0: key_1_0 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K1_0";
+    };
+    key_1_1: key_1_1 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K1_1";
+    };
+    key_1_2: key_1_2 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K1_2";
+    };
+    key_1_3: key_1_3 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K1_3";
+    };
+    key_1_4: key_1_4 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K1_4";
+    };
+    key_1_5: key_1_5 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K1_5";
+    };
+    key_1_6: key_1_6 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K1_6";
+    };
+    key_1_7: key_1_7 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K1_7";
+    };
+    key_1_8: key_1_8 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K1_8";
+    };
+    key_1_9: key_1_9 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K1_9";
+    };
+    key_1_10: key_1_10 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K1_10";
+    };
+    key_1_11: key_1_11 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K1_11";
+    };
 
-    key_2_0: key_2_0 { label = "K2_0"; };
-    key_2_1: key_2_1 { label = "K2_1"; };
-    key_2_2: key_2_2 { label = "K2_2"; };
-    key_2_3: key_2_3 { label = "K2_3"; };
-    key_2_4: key_2_4 { label = "K2_4"; };
-    key_2_5: key_2_5 { label = "K2_5"; };
-    key_2_6: key_2_6 { label = "K2_6"; };
-    key_2_7: key_2_7 { label = "K2_7"; };
-    key_2_8: key_2_8 { label = "K2_8"; };
-    key_2_9: key_2_9 { label = "K2_9"; };
-    key_2_10: key_2_10 { label = "K2_10"; };
-    key_2_11: key_2_11 { label = "K2_11"; };
+    /* Key node definitions for row 2 */
+    key_2_0: key_2_0 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K2_0";
+    };
+    key_2_1: key_2_1 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K2_1";
+    };
+    key_2_2: key_2_2 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K2_2";
+    };
+    key_2_3: key_2_3 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K2_3";
+    };
+    key_2_4: key_2_4 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K2_4";
+    };
+    key_2_5: key_2_5 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K2_5";
+    };
+    key_2_6: key_2_6 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K2_6";
+    };
+    key_2_7: key_2_7 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K2_7";
+    };
+    key_2_8: key_2_8 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K2_8";
+    };
+    key_2_9: key_2_9 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K2_9";
+    };
+    key_2_10: key_2_10 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K2_10";
+    };
+    key_2_11: key_2_11 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K2_11";
+    };
 
-    key_3_0: key_3_0 { label = "K3_0"; };
-    key_3_1: key_3_1 { label = "K3_1"; };
-    key_3_2: key_3_2 { label = "K3_2"; };
-    key_3_3: key_3_3 { label = "K3_3"; };
-    key_3_4: key_3_4 { label = "K3_4"; };
-    key_3_5: key_3_5 { label = "K3_5"; };
-    key_3_6: key_3_6 { label = "K3_6"; };
-    key_3_7: key_3_7 { label = "K3_7"; };
-    key_3_8: key_3_8 { label = "K3_8"; };
-    key_3_9: key_3_9 { label = "K3_9"; };
-    key_3_10: key_3_10 { label = "K3_10"; };
-    key_3_11: key_3_11 { label = "K3_11"; };
+    /* Key node definitions for row 3 */
+    key_3_0: key_3_0 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K3_0";
+    };
+    key_3_1: key_3_1 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K3_1";
+    };
+    key_3_2: key_3_2 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K3_2";
+    };
+    key_3_3: key_3_3 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K3_3";
+    };
+    key_3_4: key_3_4 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K3_4";
+    };
+    key_3_5: key_3_5 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K3_5";
+    };
+    key_3_6: key_3_6 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K3_6";
+    };
+    key_3_7: key_3_7 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K3_7";
+    };
+    key_3_8: key_3_8 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K3_8";
+    };
+    key_3_9: key_3_9 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K3_9";
+    };
+    key_3_10: key_3_10 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K3_10";
+    };
+    key_3_11: key_3_11 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K3_11";
+    };
 
-    key_4_4: key_4_4 { label = "K4_4"; };
-    key_4_5: key_4_5 { label = "K4_5"; };
-    key_4_6: key_4_6 { label = "K4_6"; };
-    key_4_7: key_4_7 { label = "K4_7"; };
+    /* Key node definitions for row 4 (partial row) */
+    key_4_4: key_4_4 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K4_4";
+    };
+    key_4_5: key_4_5 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K4_5";
+    };
+    key_4_6: key_4_6 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K4_6";
+    };
+    key_4_7: key_4_7 {
+        compatible = "zmk,key";
+        #key-cells = <0>;
+        label = "K4_7";
+    };
 
     /* Define the physical layout for ZMK Studio */
     echo_layout: physical_layout {
         compatible = "zmk,physical-layout";
         display-name = "Echo Layout";
-        /* Reference the transform node for key mapping */
         transform = <&default_transform>;
-
-        /* List the keys using the phandles defined above */
         keys = <
             &key_0_0  &key_0_1  &key_0_2  &key_0_3  &key_0_4  &key_0_5
             &key_0_6  &key_0_7  &key_0_8  &key_0_9  &key_0_10 &key_0_11
@@ -87,17 +296,17 @@
         >;
     };
 
-    /* Define the matrix transform node that the physical layout uses */
+    /* Define the matrix transform node */
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
         columns = <12>;
         rows = <5>;
         map = <
-            &key_0_0  &key_0_1  &key_0_2  &key_0_3  &key_0_4  &key_0_5       &key_0_6  &key_0_7  &key_0_8  &key_0_9  &key_0_10 &key_0_11
-            &key_1_0  &key_1_1  &key_1_2  &key_1_3  &key_1_4  &key_1_5       &key_1_6  &key_1_7  &key_1_8  &key_1_9  &key_1_10 &key_1_11
-            &key_2_0  &key_2_1  &key_2_2  &key_2_3  &key_2_4  &key_2_5       &key_2_6  &key_2_7  &key_2_8  &key_2_9  &key_2_10 &key_2_11
-            &key_3_0  &key_3_1  &key_3_2  &key_3_3  &key_3_4  &key_3_5       &key_3_6  &key_3_7  &key_3_8  &key_3_9  &key_3_10 &key_3_11
-                                         &key_4_4  &key_4_5       &key_4_6  &key_4_7
+            &key_0_0  &key_0_1  &key_0_2  &key_0_3  &key_0_4  &key_0_5  &key_0_6  &key_0_7  &key_0_8  &key_0_9  &key_0_10 &key_0_11
+            &key_1_0  &key_1_1  &key_1_2  &key_1_3  &key_1_4  &key_1_5  &key_1_6  &key_1_7  &key_1_8  &key_1_9  &key_1_10 &key_1_11
+            &key_2_0  &key_2_1  &key_2_2  &key_2_3  &key_2_4  &key_2_5  &key_2_6  &key_2_7  &key_2_8  &key_2_9  &key_2_10 &key_2_11
+            &key_3_0  &key_3_1  &key_3_2  &key_3_3  &key_3_4  &key_3_5  &key_3_6  &key_3_7  &key_3_8  &key_3_9  &key_3_10 &key_3_11
+                     &key_4_4  &key_4_5  &key_4_6  &key_4_7
         >;
     };
 
