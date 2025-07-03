@@ -1,9 +1,8 @@
 # .github/workflows/build.yaml
-# This is the correct and complete file.
 
 name: 'Build ZMK Firmware'
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@sdk-3.5
