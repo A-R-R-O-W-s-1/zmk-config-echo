@@ -1,7 +1,12 @@
 # .github/workflows/build.yaml
+
 name: 'Build ZMK Firmware'
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    with:
+      # This line explicitly tells the action to look for west.yml
+      # in the root of your repository ('.'), overriding the broken default.
+      config-path: '.'
