@@ -1,3 +1,5 @@
+#include <zmk-node-labels.dtsi>
+
 / {
     chosen {
         zmk,kscan = &kscan0;
