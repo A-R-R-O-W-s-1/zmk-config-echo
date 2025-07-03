@@ -1,5 +1,4 @@
 # .github/workflows/build.yaml
-
 name: 'Build ZMK Firmware'
 on: [push, pull_request, workflow_dispatch]
 
