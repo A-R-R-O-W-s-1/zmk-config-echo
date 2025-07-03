@@ -1,7 +1,0 @@
-# zmk,key.yaml
-title: "ZMK Key"
-description: "Binding for a physical key in ZMK."
-type: object
-properties:
-  label:
-    type: string

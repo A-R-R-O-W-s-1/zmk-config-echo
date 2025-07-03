@@ -3,13 +3,7 @@
 
 include:
   - board: nice_nano_v2
-    shield: echo_left
-    # Add the ZMK Studio RPC snippet
-    snippets:
-      - studio-rpc-usb-uart
-  - board: nice_nano_v2
-    shield: echo_right
-    # Add the ZMK Studio RPC snippet
+    shield: echo
     snippets:
       - studio-rpc-usb-uart
   - board: nice_nano_v2
