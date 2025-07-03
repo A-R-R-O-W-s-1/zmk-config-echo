@@ -1,6 +1,5 @@
 # build.yaml
 # This file is for adding extra settings and boards/shields to the build matrix.
-# For more info, see: https://zmk.dev/docs/user-setup#builds
 
 include:
   - board: nice_nano_v2
