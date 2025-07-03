@@ -1,6 +1,5 @@
 # This file generates the GitHub Actions matrix
 # For more info, see: https://zmk.dev/docs/user-setup#builds
-
 include:
   - board: nice_nano_v2
     shield: echo
