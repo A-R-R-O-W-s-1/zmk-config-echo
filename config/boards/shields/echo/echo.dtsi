@@ -1,28 +1,28 @@
-#include <dt-bindings/zmk/matrix_transform.h>
-
 / {
     chosen {
         zmk,kscan = &kscan0;
-        zmk,matrix_transform = &default_transform;
+        zmk,physical-layout = &layout; // Use the physical layout
     };
 
-    default_transform: keymap_transform_0 {
-        compatible = "zmk,matrix-transform";
-        columns = <12>;
-        rows = <5>;
-// | SW6  | SW5  | SW4  | SW3  | SW2  | SW1  |                 | SW1  | SW2  | SW3  | SW4  | SW5  | SW6  |
-// | SW12 | SW11 | SW10 | SW9  | SW8  | SW7  |                 | SW7  | SW8  | SW9  | SW10 | SW11 | SW12 |
-// | SW18 | SW17 | SW16 | SW15 | SW14 | SW13 |                 | SW13 | SW14 | SW15 | SW16 | SW17 | SW18 |
-// | SW24 | SW23 | SW22 | SW21 | SW20 | SW19 |                 | SW19 | SW20 | SW21 | SW22 | SW23 | SW24 |
-// | SW30 | SW29 | SW28 | SW27 | SW26 | SW25 |                 | SW25 | SW26 | SW27 | SW28 | SW29 | SW30 |
+    layout: layout {
+        compatible = "zmk,physical-layout";
+        // Assuming 19mm x 19mm key spacing, units are in um/10
+        // Tweak these x/y values if the visual representation in Studio is off
+        key-size = <1800 1800>;
 
-        map = <
-RC(0,0) RC(0,1) RC(0,2) RC(0,3) RC(0,4) RC(0,5)                 RC(0,6) RC(0,7) RC(0,8) RC(0,9) RC(0,10) RC(0,11)
-RC(1,0) RC(1,1) RC(1,2) RC(1,3) RC(1,4) RC(1,5)                 RC(1,6) RC(1,7) RC(1,8) RC(1,9) RC(1,10) RC(1,11)
-RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)                 RC(2,6) RC(2,7) RC(2,8) RC(2,9) RC(2,10) RC(2,11)
-RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5)                 RC(3,6) RC(3,7) RC(3,8) RC(3,9) RC(3,10) RC(3,11)
-                                RC(4,4) RC(4,5)                 RC(4,6) RC(4,7)
-
+        keys = <
+        // Left Hand
+        key_0_0(0,0)      key_0_1(1900,0)    key_0_2(3800,0)    key_0_3(5700,0)    key_0_4(7600,0)    key_0_5(9500,0)
+        key_1_0(238,1900)   key_1_1(2138,1900) key_1_2(4038,1900) key_1_3(5938,1900) key_1_4(7838,1900) key_1_5(9738,1900)
+        key_2_0(475,3800)   key_2_1(2375,3800) key_2_2(4275,3800) key_2_3(6175,3800) key_2_4(8075,3800) key_2_5(9975,3800)
+        key_3_0(950,5700)   key_3_1(2850,5700) key_3_2(4750,5700) key_3_3(6650,5700) key_3_4(8550,5700) key_3_5(10450,5700)
+                                                                                  key_4_4(8075,7600) key_4_5(9975,7600)
+        // Right Hand (with a 4-unit gap between halves)
+        key_0_6(15200,0)    key_0_7(17100,0)   key_0_8(19000,0)   key_0_9(20900,0)   key_0_10(22800,0)  key_0_11(24700,0)
+        key_1_6(15438,1900) key_1_7(17338,1900) key_1_8(19238,1900) key_1_9(21138,1900) key_1_10(23038,1900) key_1_11(24938,1900)
+        key_2_6(15675,3800) key_2_7(17575,3800) key_2_8(19475,3800) key_2_9(21375,3800) key_2_10(23275,3800) key_2_11(25175,3800)
+        key_3_6(16150,5700) key_3_7(18050,5700) key_3_8(19950,5700) key_3_9(21850,5700) key_3_10(23750,5700) key_3_11(25650,5700)
+        key_4_6(15675,7600) key_4_7(17575,7600)
         >;
     };
 
@@ -31,12 +31,11 @@ RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5)                 RC(3,6) RC(3,7) 
         wakeup-source;
         diode-direction = "col2row";
         row-gpios
-            = <&pro_micro 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row A from the schematic file
-            , <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row B from the schematic file
-            , <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row C from the schematic file
-            , <&pro_micro 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row D from the schematic file
-            , <&pro_micro 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Row E from the schematic file
+            = <&pro_micro 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             ;
-
     };
 };
