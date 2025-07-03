@@ -1,0 +1,7 @@
+# config/zmk-config.yaml
+---
+version: '1'
+shield:
+  - name: echo
+    board:
+      - nice_nano_v2
