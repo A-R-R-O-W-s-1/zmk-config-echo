@@ -27,11 +27,15 @@ jobs:
       - name: Update west dependencies
         run: west update
 
+      - name: DEBUG - List files after west update
+        # This is the new diagnostic step.
+        # It will show us if the 'zmk' folder was created.
+        run: ls -la
+
       - name: Export Zephyr CMAKE package
         run: west zephyr-export
 
       - name: Build firmware
-        # The only change is adding "-s zmk/app" to the command below.
         run: |
           west build -s zmk/app \
           -d "build/${{ matrix.shield }}_${{ matrix.board }}" \
