@@ -18,32 +18,39 @@ jobs:
             shield: echo_right
 
     steps:
-      - name: Checkout user config
-        # We need to check out the code into a 'config' directory
+      - name: Prepare workspace directory
+        # Create a new, clean directory to act as our build environment
+        run: mkdir zmk-workspace
+
+      - name: Checkout user config into workspace
+        # Checkout your config repo into a subdirectory named 'config'
         uses: actions/checkout@v4
         with:
-          path: config
+          path: zmk-workspace/config
 
       - name: Initialize west workspace
-        # This is the new, robust initialization method.
-        # It initializes from the main ZMK repo first.
-        run: west init -m https://github.com/zmkfirmware/zmk --mr main
+        # Initialize the build environment from within the clean workspace directory
+        working-directory: zmk-workspace
+        run: west init -l config
 
       - name: Update west dependencies
-        # This will now correctly find your 'config' folder and all other projects.
+        # Run west update from the initialized workspace. It will now find everything.
+        working-directory: zmk-workspace
         run: west update
 
       - name: Export Zephyr CMAKE package
+        working-directory: zmk-workspace
         run: west zephyr-export
 
       - name: Build firmware
-        # The build command remains the same.
+        # Run the build from the workspace directory
+        working-directory: zmk-workspace
         run: |
           west build -s zmk/app \
           -d "build/${{ matrix.shield }}_${{ matrix.board }}" \
           -b "${{ matrix.board }}" -- \
           -DSHIELD="${{ matrix.shield }}" \
-          -DZMK_CONFIG="${{ github.workspace }}/config" \
+          -DZMK_CONFIG="${{ github.workspace }}/zmk-workspace/config" \
           -Dsnippets="studio-rpc-usb-uart"
 
       - name: Archive firmware
@@ -51,4 +58,4 @@ jobs:
         with:
           name: firmware-${{ matrix.shield }}-${{ matrix.board }}
           path: |
-            build/${{ matrix.shield }}_${{ matrix.board }}/zephyr/zmk.uf2
+            zmk-workspace/build/${{ matrix.shield }}_${{ matrix.board }}/zephyr/zmk.uf2
