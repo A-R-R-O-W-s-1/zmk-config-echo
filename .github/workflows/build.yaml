@@ -1,7 +1,51 @@
-# .github/workflows/build.yaml
 name: 'Build ZMK Firmware'
+
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    runs-on: ubuntu-latest
+    container:
+      image: zmkfirmware/zmk-build-arm:3.5
+      
+    strategy:
+      fail-fast: false
+      matrix:
+        # Define the build matrix for your shields.
+        # This will build both the 'left' and 'right' sides.
+        include:
+          - board: nice_nano_v2
+            shield: echo_left
+          - board: nice_nano_v2
+            shield: echo_right
+
+    steps:
+      - name: Checkout user config
+        uses: actions/checkout@v4
+
+      - name: Initialize west
+        # This is the command that was failing.
+        # We are now running it correctly with '-l .' to specify the current directory.
+        run: west init -l .
+
+      - name: Update west dependencies
+        run: west update
+
+      - name: Export Zephyr CMAKE package
+        run: west zephyr-export
+
+      - name: Build firmware
+        # This runs the actual build command for each item in the matrix.
+        run: |
+          west build -d "build/${{ matrix.shield }}_${{ matrix.board }}" \
+          -b "${{ matrix.board }}" -- \
+          -DSHIELD="${{ matrix.shield }}" \
+          -DZMK_CONFIG="${{ github.workspace }}/config" \
+          -Dsnippets="studio-rpc-usb-uart"
+
+      - name: Archive firmware
+        uses: actions/upload-artifact@v4
+        with:
+          name: firmware-${{ matrix.shield }}-${{ matrix.board }}
+          path: |
+            build/${{ matrix.shield }}_${{ matrix.board }}/zephyr/zmk.uf2
