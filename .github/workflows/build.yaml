@@ -24,8 +24,10 @@ jobs:
       - name: Initialize west workspace
         run: west init -l .
 
-      - name: Update west dependencies
-        run: west update
+      - name: Update west dependencies (with verbose output)
+        # The -v flag will force west to print detailed logs.
+        # This will show us why it is not downloading the zmk project.
+        run: west update -v
 
       - name: Export Zephyr CMAKE package
         run: west zephyr-export
