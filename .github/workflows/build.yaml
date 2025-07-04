@@ -11,8 +11,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Define the build matrix for your shields.
-        # This will build both the 'left' and 'right' sides.
         include:
           - board: nice_nano_v2
             shield: echo_left
@@ -24,8 +22,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Initialize west
-        # This is the command that was failing.
-        # We are now running it correctly with '-l .' to specify the current directory.
         run: west init -l .
 
       - name: Update west dependencies
@@ -35,9 +31,10 @@ jobs:
         run: west zephyr-export
 
       - name: Build firmware
-        # This runs the actual build command for each item in the matrix.
+        # The only change is adding "-s zmk/app" to the command below.
         run: |
-          west build -d "build/${{ matrix.shield }}_${{ matrix.board }}" \
+          west build -s zmk/app \
+          -d "build/${{ matrix.shield }}_${{ matrix.board }}" \
           -b "${{ matrix.board }}" -- \
           -DSHIELD="${{ matrix.shield }}" \
           -DZMK_CONFIG="${{ github.workspace }}/config" \
