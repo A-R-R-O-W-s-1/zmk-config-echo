@@ -19,26 +19,25 @@ jobs:
 
     steps:
       - name: Checkout user config
+        # We need to check out the code into a 'config' directory
         uses: actions/checkout@v4
+        with:
+          path: config
 
-      - name: Initialize west
-        run: west init -l .
+      - name: Initialize west workspace
+        # This is the new, robust initialization method.
+        # It initializes from the main ZMK repo first.
+        run: west init -m https://github.com/zmkfirmware/zmk --mr main
 
-      - name: DEBUG - Show .west/config file
-        # This will show us how west has configured the project.
-        run: cat .west/config
-
-      - name: Update west dependencies with verbose output
-        # The -v flag will show detailed logs of what west is doing.
-        run: west update -v
-
-      - name: DEBUG - List files after west update
-        run: ls -la
+      - name: Update west dependencies
+        # This will now correctly find your 'config' folder and all other projects.
+        run: west update
 
       - name: Export Zephyr CMAKE package
         run: west zephyr-export
 
       - name: Build firmware
+        # The build command remains the same.
         run: |
           west build -s zmk/app \
           -d "build/${{ matrix.shield }}_${{ matrix.board }}" \
