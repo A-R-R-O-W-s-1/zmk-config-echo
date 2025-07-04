@@ -18,37 +18,28 @@ jobs:
             shield: echo_right
 
     steps:
-      - name: Create Workspace
-        run: mkdir workspace
-
-      - name: Checkout User Config into config/ subdirectory
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          path: workspace/config
 
-      - name: Initialize West from Workspace Root
-        working-directory: workspace
-        run: west init -l config
+      - name: Initialize west workspace
+        run: west init -l .
 
-      - name: Update West Dependencies
-        working-directory: workspace
+      - name: Update west dependencies
         run: west update
 
       - name: Export Zephyr CMAKE package
-        working-directory: workspace
         run: west zephyr-export
 
-      - name: Build Firmware
-        working-directory: workspace
+      - name: Build firmware
         run: |
           west build -s zmk/app \
           -d "build/${{ matrix.shield }}_${{ matrix.board }}" \
           -b "${{ matrix.board }}" -- \
           -DSHIELD="${{ matrix.shield }}" \
-          -DZMK_CONFIG="${{ github.workspace }}/workspace/config"
+          -DZMK_CONFIG="${{ github.workspace }}"
 
-      - name: Archive Firmware
+      - name: Archive firmware
         uses: actions/upload-artifact@v4
         with:
           name: firmware-${{ matrix.shield }}-${{ matrix.board }}
-          path: workspace/build/${{ matrix.shield }}_${{ matrix.board }}/zephyr/zmk.uf2
+          path: build/${{ matrix.shield }}_${{ matrix.board }}/zephyr/zmk.uf2
