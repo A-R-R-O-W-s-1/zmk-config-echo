@@ -41,5 +41,6 @@ jobs:
       - name: Archive firmware
         uses: actions/upload-artifact@v4
         with:
-          name: firmware-${{ matrix.shield }}-${{ board.name }}
+          # This line has been corrected from board.name to matrix.board
+          name: firmware-${{ matrix.shield }}-${{ matrix.board }}
           path: build/${{ matrix.shield }}_${{ matrix.board }}/zephyr/zmk.uf2
