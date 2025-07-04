@@ -19,22 +19,18 @@ jobs:
 
     steps:
       - name: Prepare workspace directory
-        # Create a new, clean directory to act as our build environment
         run: mkdir zmk-workspace
 
       - name: Checkout user config into workspace
-        # Checkout your config repo into a subdirectory named 'config'
         uses: actions/checkout@v4
         with:
           path: zmk-workspace/config
 
       - name: Initialize west workspace
-        # Initialize the build environment from within the clean workspace directory
         working-directory: zmk-workspace
         run: west init -l config
 
       - name: Update west dependencies
-        # Run west update from the initialized workspace. It will now find everything.
         working-directory: zmk-workspace
         run: west update
 
@@ -43,14 +39,14 @@ jobs:
         run: west zephyr-export
 
       - name: Build firmware
-        # Run the build from the workspace directory
         working-directory: zmk-workspace
         run: |
+          # The only change is adding the second '/config' to the ZMK_CONFIG path
           west build -s zmk/app \
           -d "build/${{ matrix.shield }}_${{ matrix.board }}" \
           -b "${{ matrix.board }}" -- \
           -DSHIELD="${{ matrix.shield }}" \
-          -DZMK_CONFIG="${{ github.workspace }}/zmk-workspace/config" \
+          -DZMK_CONFIG="${{ github.workspace }}/zmk-workspace/config/config" \
           -Dsnippets="studio-rpc-usb-uart"
 
       - name: Archive firmware
