@@ -25,12 +25,9 @@ jobs:
         run: west init -l .
 
       - name: Update west dependencies
-        run: west update
-
-      - name: DEBUG - List files after west update
-        # This is the new diagnostic step.
-        # It will show us if the 'zmk' folder was created.
-        run: ls -la
+        # The only change is adding the '--fetch-strateg=recursive' flag
+        # This forces west to fetch projects imported by other projects.
+        run: west update --fetch-strategy=recursive
 
       - name: Export Zephyr CMAKE package
         run: west zephyr-export
