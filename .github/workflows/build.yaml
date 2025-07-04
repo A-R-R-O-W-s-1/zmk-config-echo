@@ -24,10 +24,16 @@ jobs:
       - name: Initialize west
         run: west init -l .
 
-      - name: Update west dependencies
-        # The only change is adding the '--fetch-strateg=recursive' flag
-        # This forces west to fetch projects imported by other projects.
-        run: west update --fetch-strategy=recursive
+      - name: DEBUG - Show .west/config file
+        # This will show us how west has configured the project.
+        run: cat .west/config
+
+      - name: Update west dependencies with verbose output
+        # The -v flag will show detailed logs of what west is doing.
+        run: west update -v
+
+      - name: DEBUG - List files after west update
+        run: ls -la
 
       - name: Export Zephyr CMAKE package
         run: west zephyr-export
