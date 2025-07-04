@@ -4,7 +4,6 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    # Use the official ZMK build container
     runs-on: ubuntu-latest
     container:
       image: zmkfirmware/zmk-build-arm:3.5
@@ -12,7 +11,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Define the exact boards and shields to build
         include:
           - board: nice_nano_v2
             shield: echo_left
@@ -20,44 +18,28 @@ jobs:
             shield: echo_right
 
     steps:
-      # Step 1: Check out your zmk-config repo into a subdirectory named 'config'
-      # This isolates your configuration and prepares it for west.
-      - name: Checkout user config
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          path: config
 
-      # Step 2: Initialize the west workspace
-      # We run 'west init' from the main directory and point it to your
-      # local manifest file, which is now at './config'.
-      - name: Initialize west
-        run: west init -l config
+      - name: Initialize west workspace
+        run: west init -l .
 
-      # Step 3: Update all west dependencies
-      # This reads the manifest and downloads zmk, zephyr, etc.
-      # The 'self: path: config' in your west.yml is CRITICAL for this to work.
       - name: Update west dependencies
         run: west update
 
-      # Step 4: Export the Zephyr CMake package
-      # A required step for the build system to find Zephyr.
       - name: Export Zephyr CMAKE package
         run: west zephyr-export
 
-      # Step 5: Build the firmware
-      # This is the final build command with all correct paths.
       - name: Build firmware
         run: |
           west build -s zmk/app \
-            -d "build/${{ matrix.shield }}_${{ matrix.board }}" \
-            -b "${{ matrix.board }}" -- \
-            -DSHIELD="${{ matrix.shield }}" \
-            -DZMK_CONFIG="${{ github.workspace }}/config"
+          -d "build/${{ matrix.shield }}_${{ matrix.board }}" \
+          -b "${{ matrix.board }}" -- \
+          -DSHIELD="${{ matrix.shield }}" \
+          -DZMK_CONFIG="${{ github.workspace }}/config"
 
-      # Step 6: Archive the firmware file (.uf2)
-      # This makes the compiled firmware available for download.
       - name: Archive firmware
         uses: actions/upload-artifact@v4
         with:
-          name: firmware-${{ matrix.shield }}-${{ matrix.board }}
+          name: firmware-${{ matrix.shield }}-${{ board.name }}
           path: build/${{ matrix.shield }}_${{ matrix.board }}/zephyr/zmk.uf2
