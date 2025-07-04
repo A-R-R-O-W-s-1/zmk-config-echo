@@ -4,44 +4,4 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    container:
-      image: zmkfirmware/zmk-build-arm:3.5
-      
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - board: nice_nano_v2
-            shield: echo_left
-          - board: nice_nano_v2
-            shield: echo_right
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Initialize west workspace
-        run: west init -l .
-
-      - name: Update west dependencies (with verbose output)
-        # The -v flag will force west to print detailed logs.
-        # This will show us why it is not downloading the zmk project.
-        run: west update -v
-
-      - name: Export Zephyr CMAKE package
-        run: west zephyr-export
-
-      - name: Build firmware
-        run: |
-          west build -s zmk/app \
-          -d "build/${{ matrix.shield }}_${{ matrix.board }}" \
-          -b "${{ matrix.board }}" -- \
-          -DSHIELD="${{ matrix.shield }}" \
-          -DZMK_CONFIG="${{ github.workspace }}"
-
-      - name: Archive firmware
-        uses: actions/upload-artifact@v4
-        with:
-          name: firmware-${{ matrix.shield }}-${{ matrix.board }}
-          path: build/${{ matrix.shield }}_${{ matrix.board }}/zephyr/zmk.uf2
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
